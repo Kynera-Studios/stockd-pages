@@ -6,7 +6,7 @@ permalink: /privacy/
 
 # Stockd Privacy Policy
 
-**Last updated:** 2026-05-15 *(DRAFT — finalizes after CW pass-two locks auth + IAP details; cross-checked against App Store Connect nutrition labels per `docs/privacy/data-inventory.md`)*
+**Last updated:** 2026-05-16 *(Auth, diagnostics/Crashlytics, analytics, household, security, and rights sections are final. One narrow note remains in §1.4 — the exact subscription-data field set + RevenueCat client configuration — pending the Plan 4.0b purchase client; it updates in place with no URL change. Cross-checked against App Store Connect nutrition labels per `docs/privacy/data-inventory.md`.)*
 
 **Effective:** Date of first app launch
 
@@ -29,9 +29,7 @@ If you have questions, email [info@kynerastudios.com](mailto:info@kynerastudios.
 
 When you sign in, we receive an account identifier from your chosen provider:
 
-- **Sign in with Apple:** Apple gives us a stable identifier (the SIWA `sub` claim). If you choose **Hide My Email**, Apple gives us a private-relay email of the form `*.appleid.com`; we never see your real email. If you choose to share your email, we receive it.
-
-  *(DRAFT — pending pass-two on OD-b4: full handling of relay-address revocation will be specified here.)*
+- **Sign in with Apple:** Apple gives us a stable identifier (the SIWA `sub` claim). If you choose **Hide My Email**, Apple gives us a private-relay email of the form `*.appleid.com` — we never see your real email, and email you send to that relay address is forwarded to you by Apple. We do not store the relay address beyond what Firebase Auth retains for your account, and we never use it for marketing. If you later revoke Stockd's access in **iOS Settings → Apple ID → Sign in with Apple**, the relay address stops forwarding and you'll be signed out (you can sign in again at any time). If you instead choose to share your real email, we receive and store it with your account.
 
 - **Sign in with Google:** Google gives us your Google account email and Google ID, with your consent.
 
@@ -56,7 +54,7 @@ Firebase Auth assigns a stable internal user ID (UID) that we use to associate y
 
 If you subscribe to Stockd Pro, Apple charges your Apple ID and notifies RevenueCat (our subscription middleware), which sends us a webhook event. We store the subscription product ID, transaction ID, entitlement status, and expiration timestamp — no payment details. We never see your credit card.
 
-*(DRAFT — pending pass-two on Concern (a) Plan 4.x: full list of RevenueCat-side data, customer-attribution status, and webhook flow finalizes here.)*
+*(This section is final for the data we store today — product ID, transaction ID, entitlement status, expiration timestamp, no payment details. One narrow item locks when the purchase client ships in **Plan 4.0b**: the exact field set written per transaction and written confirmation that RevenueCat's optional customer-attribution and audience features stay disabled for privacy minimalism. This section updates in place at that point — same URL, no payment data involved either way.)*
 
 ### 1.5 Diagnostics
 
@@ -168,4 +166,4 @@ Stockd is operated by **Kynera Studios LLC**.
 ---
 
 **Document status note (for the spec / pass-two reviewers):**
-This Privacy Policy was a DRAFT through CW pass-two. As of 2026-05-15 round 11, the three previously-DRAFT-marked sub-sections are resolved: (a) OD-b4 SIWA relay-address handling (§1.1 already covers it); (b) Concern (a) Plan 4.x RevenueCat data set (§1.4 covers product ID + transaction ID + entitlement status + expiration; no payment details); (c) Crashlytics yes/no — **enabled** per OD-b5, text at §1.5. Factual basis at `docs/privacy/data-inventory.md`. **Standard caveat: this is a legal document; neither Cece nor Sarah is a lawyer; a second set of eyes is strongly recommended before submission for a product taking payments.**
+This Privacy Policy was a DRAFT through CW pass-two. Status as of 2026-05-16: (a) OD-b4 SIWA relay-address handling — **FINALIZED** in §1.1 (relay non-storage + marketing exclusion + revocation-stops-forwarding now stated explicitly, per `data-inventory.md` pending-section A); (b) Plan 4.x RevenueCat data set — **NARROWLY STILL PENDING Plan 4.0b** (the data we store today is described and final, but the exact per-transaction field set + the customer-attribution/audience-off confirmation lock with the 4.0b purchase client — `data-inventory.md` pending-section B remains open by design; the earlier round-11 note that called this "resolved" was optimistic and is corrected here); (c) Crashlytics — **enabled** per OD-b5, finalized text at §1.5. Factual basis at `docs/privacy/data-inventory.md`. The page is publicly live at `https://kynera-studios.github.io/stockd-pages/privacy/`; the §1.4 update lands in place when 4.0b ships (no URL change). **Standard caveat: this is a legal document; neither Cece nor Sarah is a lawyer; a second set of eyes is strongly recommended before submission for a product taking payments — see the v1-launch-checklist §6 "second-set-of-eyes legal review" row.**
