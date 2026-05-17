@@ -64,12 +64,13 @@ If you subscribe to Stockd Pro, Apple charges your Apple ID and notifies Revenue
 
 ### 1.6 Analytics
 
-Stockd v1.0 collects **two specific events** to validate critical design assumptions:
+Stockd v1.0 collects **three specific events** to validate critical design assumptions:
 
 - `aha_fired` — once per account, when you first generate a recipe using ingredients you already have.
 - `meal_plan_grocery_prompt_skipped` — when you tap Skip on the "Add missing ingredients to your grocery list" prompt.
+- `meal_plan_grocery_prompt_added` — when you tap Add on that same prompt. (Paired with the Skip event so we can measure how often the prompt is dismissed without inspecting your grocery list contents.)
 
-Both events are sent to Firebase Analytics and are linked to your UID. We do **not** use this data for advertising or sell it. The full event taxonomy stays minimal in v1.0; future versions may add events, and this section will be updated accordingly.
+All three events are sent to Firebase Analytics and are linked to your UID. We do **not** use this data for advertising or sell it. The full event taxonomy stays minimal in v1.0; future versions may add events, and this section will be updated accordingly.
 
 ### 1.7 What we do NOT collect
 
@@ -81,7 +82,7 @@ We do not collect: your location, your photos library, your contacts, health dat
 
 - **Provide the service:** we cannot show your pantry, generate recipes, or process subscriptions without storing the underlying data.
 - **Maintain account security and integrity:** Firebase Auth identifiers prevent unauthorized access; audit logs help us detect and respond to issues.
-- **Improve the product:** two specific events (above) let us validate whether design assumptions hold; we use this to make better decisions in future versions.
+- **Improve the product:** three specific events (above) let us validate whether design assumptions hold; we use this to make better decisions in future versions.
 - **Support you:** when you write to `info@kynerastudios.com`, we look up your account by the User ID you provide.
 
 We do not use any of this data for advertising, profiling, or sale.
@@ -116,7 +117,7 @@ Removing a household member revokes their access immediately for future reads.
 
 - **Access:** see your data live in the app at any time.
 - **Correction:** edit or delete items, list entries, and meal plan entries directly in the app.
-- **Deletion:** **Settings → Delete account** removes your data via a cascade. Note that this does *not* cancel an active Apple subscription — see §1.4 of our Terms.
+- **Deletion:** **Settings → Delete account** removes your data via a cascade. Note that this does *not* cancel an active Apple subscription — see Terms §4.5.
 - **Export:** if you need a copy of your data, email [info@kynerastudios.com](mailto:info@kynerastudios.com) and we'll generate one within a reasonable period.
 - **Subscription:** managed by Apple in **Settings → [your name] → Subscriptions**.
 - **Sign in with Apple Hide My Email:** controlled in **Settings → Apple ID → Sign in with Apple**. If you revoke Stockd's access, you'll need to sign in again.
