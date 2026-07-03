@@ -6,9 +6,9 @@ permalink: /privacy/
 
 # Stockd Privacy Policy
 
-**Last updated:** 2026-05-16 *(Auth, diagnostics/Crashlytics, analytics, household, security, and rights sections are final. One narrow note remains in §1.4 — the exact subscription-data field set + RevenueCat client configuration — pending the Plan 4.0b purchase client; it updates in place with no URL change. Cross-checked against App Store Connect nutrition labels per `docs/privacy/data-inventory.md`.)*
+**Last updated:** 2026-07-03 *(All sections final. Cross-checked against App Store Connect nutrition labels per `docs/privacy/data-inventory.md`.)*
 
-**Effective:** Date of first app launch
+**Effective:** July 3, 2026
 
 Stockd is built and operated by **Kynera Studios LLC** ("Stockd," "we," "us," or "our"). This Privacy Policy explains what we collect, why, where it goes, and what you control.
 
@@ -52,9 +52,11 @@ Firebase Auth assigns a stable internal user ID (UID) that we use to associate y
 
 ### 1.4 Subscription info
 
-If you subscribe to Stockd Pro, Apple charges your Apple ID and notifies RevenueCat (our subscription middleware), which sends us a webhook event. We store the subscription product ID, transaction ID, entitlement status, and expiration timestamp — no payment details. We never see your credit card.
+If you subscribe to Stockd Pro, Apple charges your Apple ID and notifies RevenueCat (our subscription middleware), which sends us a webhook event. We never see your credit card, and we store no payment details.
 
-*(This section is final for the data we store today — product ID, transaction ID, entitlement status, expiration timestamp, no payment details. One narrow item locks when the purchase client ships in **Plan 4.0b**: the exact field set written per transaction and written confirmation that RevenueCat's optional customer-attribution and audience features stay disabled for privacy minimalism. This section updates in place at that point — same URL, no payment data involved either way.)*
+The complete record we keep per subscription transaction is: the transaction identifier, your account identifier, your household identifier, the subscription product ID, the entitlements it grants, the subscription tier, whether the subscription is currently active, the purchase timestamp, the renewal/expiration timestamp, a cancellation timestamp (if you cancel), and the type and time of the most recent billing event — plus whether the transaction came from Apple's live or test (sandbox) environment.
+
+Our RevenueCat integration is configured for privacy minimalism: the app identifies you to RevenueCat only by your account identifier. We do not use RevenueCat's advertising-attribution or audience features, do not attach custom customer attributes, and do not collect device advertising identifiers.
 
 ### 1.5 Diagnostics
 
@@ -167,4 +169,4 @@ Stockd is operated by **Kynera Studios LLC**.
 ---
 
 **Document status note (for the spec / pass-two reviewers):**
-This Privacy Policy was a DRAFT through CW pass-two. Status as of 2026-05-16: (a) OD-b4 SIWA relay-address handling — **FINALIZED** in §1.1 (relay non-storage + marketing exclusion + revocation-stops-forwarding now stated explicitly, per `data-inventory.md` pending-section A); (b) Plan 4.x RevenueCat data set — **NARROWLY STILL PENDING Plan 4.0b** (the data we store today is described and final, but the exact per-transaction field set + the customer-attribution/audience-off confirmation lock with the 4.0b purchase client — `data-inventory.md` pending-section B remains open by design; the earlier round-11 note that called this "resolved" was optimistic and is corrected here); (c) Crashlytics — **enabled** per OD-b5, finalized text at §1.5. Factual basis at `docs/privacy/data-inventory.md`. The page is publicly live at `https://kynera-studios.github.io/stockd-pages/privacy/`; the §1.4 update lands in place when 4.0b ships (no URL change). **Standard caveat: this is a legal document; neither Cece nor Sarah is a lawyer; a second set of eyes is strongly recommended before submission for a product taking payments — see the v1-launch-checklist §6 "second-set-of-eyes legal review" row.**
+FINALIZED 2026-07-03. (a) OD-b4 SIWA relay-address handling — finalized in §1.1; (b) RevenueCat data set — §1.4 finalized against the shipped 4.0b/4.0c code: per-transaction field set enumerated from `rcWebhookHandler.ts` (uid, orgId, environment, rcProductId, rcEntitlementIds, tier, isActive, purchasedAt, renewsAt, canceledAt, anonymizedOwnerAt, lastEventAt, lastEventType — no payment data), and attribution-off confirmed from `RevenueCatBootstrap.swift` (`Purchases.configure(withAPIKey:appUserID:)` only; no setAttributes, no attribution collection, no device ad identifiers) — `data-inventory.md` pending-section B closes; (c) Crashlytics — enabled per OD-b5, finalized text at §1.5. Factual basis at `docs/privacy/data-inventory.md`. The page is publicly live at `https://kynera-studios.github.io/stockd-pages/privacy/`. **Standard caveat: this is a legal document; neither Cece nor Sarah is a lawyer; a second set of eyes is strongly recommended before submission for a product taking payments — see the v1-launch-checklist §6 "second-set-of-eyes legal review" row.**
