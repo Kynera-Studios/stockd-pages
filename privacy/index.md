@@ -6,7 +6,7 @@ permalink: /privacy/
 
 # Stockd Privacy Policy
 
-**Last updated:** 2026-07-03 *(All sections final. Cross-checked against App Store Connect nutrition labels per `docs/privacy/data-inventory.md`.)*
+**Last updated:** 2026-07-03 *(All sections final; legal-review items (a) analytics-no-opt-out sentence + (b) controller address applied same day. Cross-checked against App Store Connect nutrition labels per `docs/privacy/data-inventory.md`.)*
 
 **Effective:** July 3, 2026
 
@@ -72,7 +72,7 @@ Stockd v1.0 collects **three specific events** to validate critical design assum
 - `meal_plan_grocery_prompt_skipped` — when you tap Skip on the "Add missing ingredients to your grocery list" prompt.
 - `meal_plan_grocery_prompt_added` — when you tap Add on that same prompt. (Paired with the Skip event so we can measure how often the prompt is dismissed without inspecting your grocery list contents.)
 
-All three events are sent to Firebase Analytics and are linked to your UID. We do **not** use this data for advertising or sell it. The full event taxonomy stays minimal in v1.0; future versions may add events, and this section will be updated accordingly.
+All three events are sent to Firebase Analytics and are linked to your UID. We do **not** use this data for advertising or sell it. These events are essential to validating v1.0's design and cannot be disabled in this version; a settings toggle is on the v1.1 roadmap. The full event taxonomy stays minimal in v1.0; future versions may add events, and this section will be updated accordingly.
 
 ### 1.7 What we do NOT collect
 
@@ -160,7 +160,7 @@ We may update this Privacy Policy. Material changes will be announced in-app or 
 
 Privacy questions, data requests, or concerns: [info@kynerastudios.com](mailto:info@kynerastudios.com)
 
-Stockd is operated by **Kynera Studios LLC**.
+Stockd is operated by **Kynera Studios LLC** (the data controller), 7901 4th St N, Ste 300, St. Petersburg, FL 33702, USA.
 
 ---
 
