@@ -44,7 +44,7 @@ We may suspend or terminate your account if you violate these terms.
 
 Stockd offers a free tier and a paid subscription tier ("Stockd Pro"):
 
-- **Free tier:** full inventory tracking, expiration dates, barcode scanning, bulk scan, grocery list, 15 AI recipe generations per month, one household invite, basic "add this recipe to my grocery list."
+- **Free tier:** full inventory tracking, expiration dates, barcode scanning, bulk scan, grocery list, 5 AI recipe generations per month, one household invite, basic "add this recipe to my grocery list."
 - **Stockd Pro:** $4.99 USD / month or $29.99 USD / year (subject to local taxes and currency conversion). Unlimited AI recipes, AI-generated recipe images, step-by-step cooking instructions, bulk "add all missing ingredients," multi-member household sharing (3+ members).
 
 ### 4.1 Billing

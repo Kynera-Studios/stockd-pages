@@ -64,13 +64,13 @@ To invite: **Settings → Household → Invite member** (in-app).
 
 ### "What does Stockd Pro include?"
 
-- Unlimited AI recipe suggestions (free tier is capped at 15 / month)
+- Unlimited AI recipe suggestions (free tier is capped at 5 / month)
 - AI-generated recipe images
 - Step-by-step cooking instructions
 - Bulk "add all missing ingredients" from a recipe to your grocery list
 - Multi-member household sharing (3+ members)
 
-Free includes: full inventory tracking, expiration dates, barcode scanning, bulk scan, basic grocery list, 15 AI recipes / month, basic "add this recipe to my grocery list" path, and one household invite.
+Free includes: full inventory tracking, expiration dates, barcode scanning, bulk scan, basic grocery list, 5 AI recipes / month, basic "add this recipe to my grocery list" path, and one household invite.
 
 ---
 
