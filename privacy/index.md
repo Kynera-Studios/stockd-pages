@@ -6,7 +6,7 @@ permalink: /privacy/
 
 # Stockd Privacy Policy
 
-**Last updated:** 2026-07-03 *(All sections final; legal-review items (a) analytics-no-opt-out sentence + (b) controller address applied same day. Cross-checked against App Store Connect nutrition labels per `docs/privacy/data-inventory.md`.)*
+**Last updated:** 2026-08-03 *(v1.1 release edits: analytics opt-out toggle now available (§1.6); push notification tokens added to the data inventory (§1.7). Prior full-legal-review pass 2026-07-03; cross-checked against App Store Connect nutrition labels per `docs/privacy/data-inventory.md`.)*
 
 **Effective:** July 3, 2026
 
@@ -66,15 +66,19 @@ Our RevenueCat integration is configured for privacy minimalism: the app identif
 
 ### 1.6 Analytics
 
-Stockd v1.0 collects **three specific events** to validate critical design assumptions:
+Stockd collects **three specific events** to validate critical design assumptions:
 
 - `aha_fired` — once per account, when you first generate a recipe using ingredients you already have.
 - `meal_plan_grocery_prompt_skipped` — when you tap Skip on the "Add missing ingredients to your grocery list" prompt.
 - `meal_plan_grocery_prompt_added` — when you tap Add on that same prompt. (Paired with the Skip event so we can measure how often the prompt is dismissed without inspecting your grocery list contents.)
 
-All three events are sent to Firebase Analytics and are linked to your UID. We do **not** use this data for advertising or sell it. These events are essential to validating v1.0's design and cannot be disabled in this version; a settings toggle is on the v1.1 roadmap. The full event taxonomy stays minimal in v1.0; future versions may add events, and this section will be updated accordingly.
+All three events are sent to Firebase Analytics and are linked to your UID. We do **not** use this data for advertising or sell it. **Analytics can be disabled at any time in the app at Settings → Privacy.** Turning the toggle off stops these events and Firebase's automatic collection (sessions, screen views) as well. The event taxonomy stays minimal; future versions may add events, and this section will be updated accordingly.
 
-### 1.7 What we do NOT collect
+### 1.7 Push notification tokens (expiring-soon alerts)
+
+If you enable **expiring-soon alerts** (a Stockd Pro feature, in-app at **Settings → Notifications**), Apple issues your device a push notification token, and we store it under your account so our server can deliver your once-a-day alert at the hour you choose. The alert is computed server-side from your pantry's expiration dates; the token itself contains no personal information. Turning the alerts toggle off stops the alerts, and signing out removes the stored token. If you never enable alerts, no push token is ever requested or stored.
+
+### 1.8 What we do NOT collect
 
 We do not collect: your location, your photos library, your contacts, health data, financial information (Apple handles payment), browsing history, search history across sessions, or sensitive personal data as defined by Apple. We do not use the AppTrackingTransparency framework — Stockd does not track you across other apps or websites.
 

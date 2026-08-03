@@ -78,11 +78,11 @@ Free includes: full inventory tracking, expiration dates, barcode scanning, bulk
 
 We collect the minimum needed to make the app work — your pantry items, your grocery list, your meal plans, and the AI recipes you generate. We don't sell data, share with third parties beyond what's required to run the service (Firebase for storage and auth, Google Gemini for AI generation, RevenueCat for subscriptions), and we don't track you across apps.
 
-Full privacy policy: [Privacy Policy](/privacy/) *(coming soon)*
+Full privacy policy: [Privacy Policy](/privacy/)
 
 ## Terms
 
-Full terms: [Terms of Service](/terms/) *(coming soon)*
+Full terms: [Terms of Service](/terms/)
 
 ---
 
