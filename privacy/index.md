@@ -6,7 +6,7 @@ permalink: /privacy/
 
 # Stockd Privacy Policy
 
-**Last updated:** 2026-08-03 *(v1.1 release edits: analytics opt-out toggle now available (§1.6); push notification tokens added to the data inventory (§1.7). Prior full-legal-review pass 2026-07-03; cross-checked against App Store Connect nutrition labels per `docs/privacy/data-inventory.md`.)*
+**Last updated:** 2026-10-12 *(Receipt mode: added the receipt-photo disclosure (§1.3) and extended the Gemini row (§3). Prior edits 2026-08-03 (analytics opt-out §1.6, push tokens §1.7); full-legal-review pass 2026-07-03; cross-checked against App Store Connect nutrition labels per `docs/privacy/data-inventory.md`.)*
 
 **Effective:** July 3, 2026
 
@@ -18,7 +18,7 @@ If you have questions, email [info@kynerastudios.com](mailto:info@kynerastudios.
 >
 > - We collect what's needed to run a household pantry app: your account identifier, the food items you track, your grocery list, your meal plans, and (if you subscribe) your subscription status.
 > - We do **not** sell your data, do **not** track you across other apps, do **not** use advertising, and do **not** access your photos library, contacts, or location.
-> - We use Google Firebase to store your data, Google's Gemini and Imagen AI to generate recipe text and images, RevenueCat to manage subscriptions, and Open Food Facts to look up barcode product info.
+> - We use Google Firebase to store your data, Google's Gemini and Imagen AI to generate recipe text and images and to read receipt photos you choose to scan, RevenueCat to manage subscriptions, and Open Food Facts to look up barcode product info.
 > - You can delete your account at any time from **Settings → Delete account**. Deletion is a cascade — your data is removed from our systems. (Apple subscriptions, if any, must be cancelled separately in your Apple ID Settings.)
 
 ---
@@ -49,6 +49,7 @@ Firebase Auth assigns a stable internal user ID (UID) that we use to associate y
 - **AI recipe images:** the recipe name is sent to Google's Imagen API to generate an image. The image is cached publicly under a hash of the recipe name so other Stockd users who generate the same recipe can reuse it. The image is not tied to your account.
 - **Barcode product info:** when you scan a barcode, we send the barcode digits to Open Food Facts to look up the product name and category. Just the barcode — no identifier.
 - **OCR (expiration-date scanning):** done entirely on your device using Apple's Vision framework. Camera frames never leave your device.
+- **Receipt photos (Receipt mode in the scanner):** when you choose to photograph a grocery receipt, that one photo is sent to Google's Gemini API so it can list the food items on it. Receipts often show details beyond the food — the store's address, the last four digits of a payment card, sometimes a loyalty-program name — and the whole photo goes to Google as-is. We do not store the photo: it is held in memory only for the length of the request and is never written to our servers or logs. What we keep is the list of item names, quantities and categories you confirm, which becomes part of your pantry like any other item. Free accounts have a monthly allowance of receipt photos shared across the household; the count is stored with your pantry.
 
 ### 1.4 Subscription info
 
@@ -100,7 +101,7 @@ We do not use any of this data for advertising, profiling, or sale.
 | Provider | Purpose | What they see |
 |---|---|---|
 | Google Firebase (Auth, Firestore, Cloud Functions, Storage, Analytics) | Storage, auth, server compute, analytics | Everything in §1 except payment details |
-| Google Gemini API | AI text generation | Your prompt + pantry item names (no UID, no email) |
+| Google Gemini API | AI text generation; reading receipt photos | Your prompt + pantry item names (no UID, no email); for Receipt mode, the receipt photo you take (processed in memory, not stored by us) |
 | Google Imagen API | AI image generation | Recipe name strings only |
 | Apple StoreKit | Payment processing | Your Apple ID payment info (we never see card data) |
 | RevenueCat | Subscription middleware | Apple StoreKit transaction events; our UID-to-subscription mapping |
