@@ -6,7 +6,7 @@ permalink: /privacy/
 
 # Stockd Privacy Policy
 
-**Last updated:** 2026-10-12 *(Receipt mode: added the receipt-photo disclosure (§1.3) and extended the Gemini row (§3). Prior edits 2026-08-03 (analytics opt-out §1.6, push tokens §1.7); full-legal-review pass 2026-07-03; cross-checked against App Store Connect nutrition labels per `docs/privacy/data-inventory.md`.)*
+**Last updated:** 2026-11-24 *(Clarified receipt-photo permission and temporary storage of suggested items in §1.3.)*
 
 **Effective:** July 3, 2026
 
@@ -49,7 +49,7 @@ Firebase Auth assigns a stable internal user ID (UID) that we use to associate y
 - **AI recipe images:** the recipe name is sent to Google's Imagen API to generate an image. The image is cached publicly under a hash of the recipe name so other Stockd users who generate the same recipe can reuse it. The image is not tied to your account.
 - **Barcode product info:** when you scan a barcode, we send the barcode digits to Open Food Facts to look up the product name and category. Just the barcode — no identifier.
 - **OCR (expiration-date scanning):** done entirely on your device using Apple's Vision framework. Camera frames never leave your device.
-- **Receipt photos (Receipt mode in the scanner):** when you choose to photograph a grocery receipt, that one photo is sent to Google's Gemini API so it can list the food items on it. Receipts often show details beyond the food — the store's address, the last four digits of a payment card, sometimes a loyalty-program name — and the whole photo goes to Google as-is. We do not store the photo: it is held in memory only for the length of the request and is never written to our servers or logs. What we keep is the list of item names, quantities and categories you confirm, which becomes part of your pantry like any other item. Free accounts have a monthly allowance of receipt photos shared across the household; the count is stored with your pantry.
+- **Receipt photos (Receipt mode in the scanner):** after you give permission, Stockd sends each receipt photo to Google's Gemini API to identify groceries. Google receives the full photo, which may show the store's address, the last four digits of a payment card, or loyalty-program details. Stockd holds the photo in memory during processing and never writes it to storage or logs. Stockd temporarily caches the suggested items with your account identifier so it can recover the result if the request is retried. The cache omits the original receipt text and is scheduled for automatic deletion after 24 hours. The items you confirm become part of your pantry. Free accounts share a monthly allowance across the household, and the count is stored with your pantry.
 
 ### 1.4 Subscription info
 
